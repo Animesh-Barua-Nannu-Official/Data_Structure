@@ -32,3 +32,15 @@ def reverseLL(head):
 
     head = prev
     return head
+
+def reverseLLRecursive(head):
+    if head is None or head.next is None:
+        return head
+    
+    rest = reverseLLRecursive(head.next)
+
+    head.next.next = head
+
+    head.next = None
+
+    return rest
