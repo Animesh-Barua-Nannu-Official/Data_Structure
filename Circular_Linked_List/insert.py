@@ -1,8 +1,13 @@
 from nodeCircularLL import Node
 
 def insertEmptyList(last, data):
-    if last is None:
-        return None
+    '''
+    insertion in an empty linked list. 
+    param: last, data
+    return: last
+    '''
+    if last is not None:
+        return last
     
     n_node = Node(data)
 
@@ -11,6 +16,11 @@ def insertEmptyList(last, data):
     return n_node
 
 def insertBegining(last, data):
+    '''
+    insertion at the begining of a linked list.
+    param: last, data
+    return: last
+    '''
     n_node = Node(data)
 
     if last is None:
@@ -23,6 +33,11 @@ def insertBegining(last, data):
     return last
 
 def insertEnd(last, data):
+    '''
+    insertion at the tail of a linked list
+    param: last, data
+    retur: last
+    '''
     n_node = Node(data)
     if last is None:
         last = n_node
@@ -35,6 +50,11 @@ def insertEnd(last, data):
     return last
 
 def insertAtPosition(last, data, position):
+    '''
+    insertion at a position
+    param: last, data, position
+    return: last
+    '''
     if last is None:
         if position != 1:
             print('invalid position')
