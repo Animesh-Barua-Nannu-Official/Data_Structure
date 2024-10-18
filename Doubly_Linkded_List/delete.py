@@ -47,3 +47,67 @@ def delAfter(head, key):
         del_node.next.prev = curr
     return head
 
+def delBefore(head, key):
+    '''
+    delete before the given key
+    param: head, key
+    return: head
+    '''
+    curr = head
+
+    while curr is not None:
+        if curr.data == key:
+            break
+        curr = curr.next
+
+    if curr is None or curr.prev is None:
+        return head
+
+    del_node = curr.prev
+
+    curr.prev = del_node.prev
+
+    if del_node.prev is not None:
+        del_node.prev.next = curr
+    else:
+        head = curr
+
+    return head
+
+def delAtPosition(head, pos):
+    if head is None:
+        return head
+
+    curr = head
+
+    for _ in range(1, pos):
+        if curr is None:
+            return head
+        curr = curr.next
+
+    if curr is None:
+        return head
+    
+    if curr.prev is not None:
+        curr.prev.next = curr.next
+
+    if curr.next is not None:
+        curr.next.prev = curr.prev
+
+    if head == curr:
+        head = curr.next
+
+    return head
+
+def delEnd(head):
+    if (head is None) or (head.next is None):
+        return None
+    curr = head
+    while curr.next is not None:
+        curr = curr.next
+
+    if curr.prev is not None:
+        curr.prev.next = None
+
+    return head
+    
